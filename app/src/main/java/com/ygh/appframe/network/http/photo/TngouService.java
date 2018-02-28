@@ -1,4 +1,4 @@
-package com.ygh.appframe.network.photo;
+package com.ygh.appframe.network.http.photo;
 
 
 import com.ygh.appframe.mvp.photo.model.PhotoModel;

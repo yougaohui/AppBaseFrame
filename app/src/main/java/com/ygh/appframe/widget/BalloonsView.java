@@ -12,10 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.ygh.appframe.mvp.game.model.BalloonModel;
+
 import java.util.ArrayList;
 import java.util.Random;
-
-import com.ygh.appframe.mvp.model.BalloonModel;
 
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
@@ -118,8 +118,8 @@ public class BalloonsView extends View {
 
                 if (balloonModel.y > 0 - DEFAULT_RADII) {
                     if (balloonModel.isClick) {
-                        RectF rectf = new RectF((float) (balloonModel.x - DEFAULT_RADII * (balloonModel.life / 5)), (float) (balloonModel.y - DEFAULT_RADII - DEFAULT_RADII * (balloonModel.life / 5)),
-                                (float) (balloonModel.x + DEFAULT_RADII * 2 + DEFAULT_RADII * (balloonModel.life / 5)), (float) (balloonModel.y + DEFAULT_RADII + DEFAULT_RADII * (balloonModel.life / 5)));
+                        RectF rectf = new RectF(balloonModel.x - DEFAULT_RADII * (balloonModel.life / 5), (float) (balloonModel.y - DEFAULT_RADII - DEFAULT_RADII * (balloonModel.life / 5)),
+                                balloonModel.x + DEFAULT_RADII * 2 + DEFAULT_RADII * (balloonModel.life / 5), (float) (balloonModel.y + DEFAULT_RADII + DEFAULT_RADII * (balloonModel.life / 5)));
                         canvas.drawOval(rectf, balloonModel.mPaint);
                         balloonModel.life = balloonModel.life + 1;
                         if (balloonModel.life >= 8) {

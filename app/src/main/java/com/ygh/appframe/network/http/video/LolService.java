@@ -1,4 +1,4 @@
-package com.ygh.appframe.network.video;
+package com.ygh.appframe.network.http.video;
 
 
 import com.ygh.appframe.mvp.video.model.VideoModel;

@@ -6,8 +6,8 @@ import com.ygh.appframe.callback.SubscriberCallback;
 import com.ygh.appframe.common.Api;
 import com.ygh.appframe.mvp.video.model.VideoModel;
 import com.ygh.appframe.mvp.video.view.VideoListView;
-import com.ygh.appframe.network.video.LolService;
-import com.ygh.appframe.network.video.VideoNetwork;
+import com.ygh.appframe.network.http.video.LolService;
+import com.ygh.appframe.network.http.video.VideoNetwork;
 
 /**
  * Created by gaohui.you on 2/28/18

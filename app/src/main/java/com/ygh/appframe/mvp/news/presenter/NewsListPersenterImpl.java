@@ -6,8 +6,8 @@ import com.ygh.appframe.callback.SubscriberCallback;
 import com.ygh.appframe.common.Api;
 import com.ygh.appframe.mvp.news.model.NewsModel;
 import com.ygh.appframe.mvp.news.view.NewsListView;
-import com.ygh.appframe.network.news.BaozouService;
-import com.ygh.appframe.network.news.NewsNetwork;
+import com.ygh.appframe.network.http.news.BaozouService;
+import com.ygh.appframe.network.http.news.NewsNetwork;
 
 
 /**

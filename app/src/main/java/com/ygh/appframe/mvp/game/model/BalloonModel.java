@@ -1,4 +1,4 @@
-package com.ygh.appframe.mvp.model;
+package com.ygh.appframe.mvp.game.model;
 
 import android.graphics.Paint;
 

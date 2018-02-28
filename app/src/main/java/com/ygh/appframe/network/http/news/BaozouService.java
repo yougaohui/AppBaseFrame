@@ -1,4 +1,4 @@
-package com.ygh.appframe.network.news;
+package com.ygh.appframe.network.http.news;
 
 
 import com.ygh.appframe.mvp.news.model.NewsModel;

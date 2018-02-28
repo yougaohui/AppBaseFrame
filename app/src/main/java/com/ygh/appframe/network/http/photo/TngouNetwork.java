@@ -1,4 +1,4 @@
-package com.ygh.appframe.network.photo;
+package com.ygh.appframe.network.http.photo;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

@@ -6,8 +6,8 @@ import com.ygh.appframe.callback.SubscriberCallback;
 import com.ygh.appframe.common.Api;
 import com.ygh.appframe.mvp.photo.model.PhotoModel;
 import com.ygh.appframe.mvp.photo.view.PhotoListView;
-import com.ygh.appframe.network.photo.TngouNetwork;
-import com.ygh.appframe.network.photo.TngouService;
+import com.ygh.appframe.network.http.photo.TngouNetwork;
+import com.ygh.appframe.network.http.photo.TngouService;
 
 
 /**

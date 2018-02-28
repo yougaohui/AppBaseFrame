@@ -1,4 +1,4 @@
-package com.ygh.appframe.network.news;
+package com.ygh.appframe.network.http.news;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
