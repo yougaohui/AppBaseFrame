@@ -69,15 +69,19 @@ android {
             //签名
             signingConfig signingConfigs.release
 
-            applicationVariants.all { variant ->
-                variant.outputs.all { output ->
-                    def outputFile = output.getOutputFile()
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        // 输出apk名称为app_v1.0_2015-xx-xx_xxxx.apk
-                        def fileName = "ygh_v${defaultConfig.versionName}_${releaseTime()}.apk"
-//                      def fileName = "ygh_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
-                        outputFile = new File(outputFile.parent, fileName)
-                    }
+            flavorDimensions 'api'
+            //渠道Flavors，配置不同风格的app,友盟渠道统计时用到
+            productFlavors {
+                "offical" {}
+                "360" {}
+                yingyongbao {}
+                wandoujia {}
+                baidu {}
+                "91" {}
+            }
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "ygh_${variant.productFlavors[0].name}_v${variant.versionName}_${releaseTime()}.apk"
                 }
             }
         }
