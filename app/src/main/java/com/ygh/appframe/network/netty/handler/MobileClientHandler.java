@@ -1,9 +1,9 @@
 package com.ygh.appframe.network.netty.handler;
 
 
+import com.blankj.utilcode.util.LogUtils;
 import com.ygh.appframe.network.netty.MobileClient;
 import com.ygh.appframe.network.netty.listener.NetConnStateServiceListener;
-import com.ygh.appframe.utils.LogUtils;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

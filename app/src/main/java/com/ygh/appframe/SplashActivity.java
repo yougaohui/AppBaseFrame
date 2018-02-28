@@ -22,7 +22,6 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         startAnim();
-
     }
 
     public void startAnim() {

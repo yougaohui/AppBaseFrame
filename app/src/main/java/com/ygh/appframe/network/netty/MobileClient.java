@@ -1,10 +1,10 @@
 package com.ygh.appframe.network.netty;
 
 
+import com.blankj.utilcode.util.LogUtils;
 import com.ygh.appframe.network.netty.handler.MobileClientInitializer;
 import com.ygh.appframe.network.netty.listener.NetConnStateServiceListener;
 import com.ygh.appframe.network.netty.mode.SocketConfig;
-import com.ygh.appframe.utils.LogUtils;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
