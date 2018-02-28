@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity<MainParsenterImpl> implements Mai
         mDrawerToggle = new ActionBarDrawerToggle(this, drawe, toolbar, R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
         mDrawerToggle.syncState();
-        drawe.setDrawerListener(mDrawerToggle);
+        drawe.addDrawerListener(mDrawerToggle);
         navigationView.setCheckedItem(R.id.nav_news);
         setupDrawerContent(navigationView);
 

@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'org.greenrobot.greendao'
 
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -12,12 +16,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 
     //greendao 数据库配置文件
     greendao {
@@ -27,6 +25,62 @@ android {
         daoPackage 'com.ygh.appframe.dao'
         //这就是我们上面说到的自定义生成数据库文件的目录了，可以将生成的文件放到我们的java目录中，而不是build中，这样就不用额外的设置资源目录了
         targetGenDir 'src/main/java'
+    }
+
+    //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+    lintOptions {
+        abortOnError false
+    }
+
+    //签名配置
+    signingConfigs {
+        debug {
+        }
+        release {// 自己的签名文件
+            storeFile file("./doc/ygh.jks")
+            storePassword "12345678"
+            keyAlias "ygh"
+            keyPassword "12345678"
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            //混淆
+            minifyEnabled true
+            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，后一个文件是自己的定义混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
+
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.getOutputFile()
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为app_v1.0_2015-xx-xx_xxxx.apk
+                        def fileName = "ygh_v${defaultConfig.versionName}_${releaseTime()}.apk"
+//                      def fileName = "ygh_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+                        outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
     }
 }
 
