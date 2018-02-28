@@ -51,6 +51,17 @@
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
             android:theme="@style/AppTheme.NoActionBar.Translucent">
         </activity>
+
+        <service
+            android:name=".service.CoreService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service
+            android:name=".service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>
