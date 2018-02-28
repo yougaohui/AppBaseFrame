@@ -32,6 +32,7 @@ android {
         abortOnError false
     }
 
+    //https://www.cnblogs.com/permanent2012moira/p/5126276.html
     //签名配置
     signingConfigs {
         debug {
@@ -69,6 +70,7 @@ android {
             //签名
             signingConfig signingConfigs.release
 
+            //http://blog.csdn.net/u014300915/article/details/78355420
             flavorDimensions 'api'
             //渠道Flavors，配置不同风格的app,友盟渠道统计时用到
             productFlavors {
