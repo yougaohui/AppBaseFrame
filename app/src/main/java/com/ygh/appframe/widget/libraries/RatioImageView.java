@@ -8,7 +8,7 @@ import android.widget.ImageView;
  * Created by gaohui.you on 2/28/18
  * Email:839939978@qq.com
  */
-public class RatioImageView extends ImageView {
+public class RatioImageView extends android.support.v7.widget.AppCompatImageView {
 
     private int originalWidth;
     private int originalHeight;
