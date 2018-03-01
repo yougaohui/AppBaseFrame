@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 
 import com.ygh.appframe.R;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.lang.reflect.Field;
 
 import butterknife.ButterKnife;
@@ -32,7 +36,7 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends AppCompa
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-
+        registerEventBus();
     }
 
 
@@ -99,6 +103,7 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends AppCompa
         if (Presente != null) {
             Presente.detachView();
         }
+        unregisterEventBus();
     }
 
 
@@ -117,8 +122,44 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends AppCompa
     }
 
 
-
     protected abstract P createPresenter();
 
     protected abstract int getLayoutId();
+
+    /**
+     * 注册EventBus
+     *
+     * @author gaohui.you  839939978@qq.com
+     * Create at 3/1/18 10:54 AM
+     * @params
+     **/
+    protected void registerEventBus() {
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    /**
+     * 解注册EventBus
+     *
+     * @author gaohui.you  839939978@qq.com
+     * Create at 3/1/18 10:54 AM
+     * @params
+     **/
+    protected void unregisterEventBus() {
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    /**
+    * 数据接收
+    * @author gaohui.you  839939978@qq.com
+    * Create at 3/1/18 11:01 AM
+    * @params
+    **/
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(Object event) {
+
+    }
 }
