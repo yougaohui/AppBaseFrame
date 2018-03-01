@@ -66,7 +66,7 @@ public class CoreService extends Service {
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            LogUtils.e(TAG, "MqttService连接远程服务成功 --------");
+            LogUtils.e(TAG, "CoreService连接远程服务成功 --------");
         }
 
         @Override

@@ -71,12 +71,12 @@ public class DaemonService extends Service {
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            Log.e(TAG, "LocalService连接成功--------");
+            Log.e(TAG, "DaemonService连接成功--------");
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            Log.e(TAG, "LocalService killed--------");
+            Log.e(TAG, "DaemonService killed--------");
             startService(new Intent(DaemonService.this, CoreService.class));
             bindService(new Intent(DaemonService.this, CoreService.class),
                     myConn, Context.BIND_IMPORTANT);
