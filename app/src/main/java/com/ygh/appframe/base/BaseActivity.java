@@ -148,7 +148,7 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends AppCompa
      **/
     protected void unregisterEventBus() {
         if (EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().register(this);
+            EventBus.getDefault().unregister(this);
         }
     }
 
