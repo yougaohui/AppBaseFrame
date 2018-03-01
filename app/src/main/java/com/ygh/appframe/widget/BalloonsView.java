@@ -47,7 +47,7 @@ public class BalloonsView extends View {
 
     //初始化画笔
     private void init() {
-        balloonModels = new ArrayList<BalloonModel>();
+        balloonModels = new ArrayList<>();
         handler = new Handler();
         WindowManager wm = (WindowManager) getContext()
                 .getSystemService(Context.WINDOW_SERVICE);
