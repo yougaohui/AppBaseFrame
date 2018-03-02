@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'org.greenrobot.greendao'
+apply from: 'tinker-support.gradle'
 
 def releaseTime() {
     return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
@@ -15,11 +16,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
         ndk {
             //设置支持的SO库架构
             abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
+        // 开启multidex
+        multiDexEnabled true
     }
 
     //greendao 数据库配置文件
@@ -30,6 +32,12 @@ android {
         daoPackage 'com.ygh.appframe.dao'
         //这就是我们上面说到的自定义生成数据库文件的目录了，可以将生成的文件放到我们的java目录中，而不是build中，这样就不用额外的设置资源目录了
         targetGenDir 'src/main/java'
+    }
+
+    dexOptions {
+        jumboMode = true
+        maxProcessCount 4
+        javaMaxHeapSize "2g"
     }
 
     //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
@@ -67,30 +75,30 @@ android {
             //Zipalign优化
             zipAlignEnabled true
             // 移除无用的resource文件
-            shrinkResources true
+//            shrinkResources true
             //混淆
-            minifyEnabled true
+            minifyEnabled false
             //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，后一个文件是自己的定义混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //签名
             signingConfig signingConfigs.release
 
-            //http://blog.csdn.net/u014300915/article/details/78355420
-            flavorDimensions 'api'
-            //渠道Flavors，配置不同风格的app,友盟渠道统计时用到
-            productFlavors {
-                "offical" {}
-                "360" {}
-                yingyongbao {}
-                wandoujia {}
-                baidu {}
-                "91" {}
-            }
-            android.applicationVariants.all { variant ->
-                variant.outputs.all {
-                    outputFileName = "ygh_${variant.productFlavors[0].name}_v${variant.versionName}_${releaseTime()}.apk"
-                }
-            }
+//            //http://blog.csdn.net/u014300915/article/details/78355420
+//            flavorDimensions 'api'
+//            //渠道Flavors，配置不同风格的app,友盟渠道统计时用到
+//            productFlavors {
+//                "offical" {}
+//                "360" {}
+//                yingyongbao {}
+//                wandoujia {}
+//                baidu {}
+//                "91" {}
+//            }
+//            android.applicationVariants.all { variant ->
+//                variant.outputs.all {
+//                    outputFileName = "ygh_${variant.productFlavors[0].name}_v${variant.versionName}_${releaseTime()}.apk"
+//                }
+//            }
         }
     }
 }
@@ -133,8 +141,10 @@ dependencies {
     //bugly异常搜集框架
     //注释掉原有bugly的仓库
     //compile 'com.tencent.bugly:crashreport:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.3.2
-    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
-    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
     // 多dex配置
     compile "com.android.support:multidex:1.0.1"
 }

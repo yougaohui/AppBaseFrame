@@ -24,6 +24,12 @@ public class SplashActivity extends Activity {
         startAnim();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        throw new NullPointerException("test................");
+    }
+
     public void startAnim() {
         splashview.postDelayed(new Runnable() {
             @Override

@@ -289,3 +289,7 @@ public static java.lang.String TABLENAME;
 #导航
 -keep class com.amap.api.navi.**{*;}
 -keep class com.autonavi.**{*;}
+#bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+ -keep class android.support.**{*;}
