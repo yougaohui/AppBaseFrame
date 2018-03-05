@@ -57,20 +57,6 @@ android {
         }
     }
 
-    // 多渠道配置
-    flavorDimensions "tier"
-    productFlavors {
-        xiaomi {
-            dimension "tier"
-        }
-        yyb {
-            dimension "tier"
-        }
-        wdj {
-            dimension "tier"
-        }
-    }
-
     buildTypes {
         debug {
             // 显示Log
@@ -95,17 +81,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //签名
             signingConfig signingConfigs.release
-//            //http://blog.csdn.net/u014300915/article/details/78355420
-//            flavorDimensions 'api'
-//            //渠道Flavors，配置不同风格的app,友盟渠道统计时用到
-//            productFlavors {
-//                "offical" {}
-//                "360" {}
-//                yingyongbao {}
-//                wandoujia {}
-//                baidu {}
-//                "91" {}
-//            }
+            //http://blog.csdn.net/u014300915/article/details/78355420
+            flavorDimensions 'api'
+            //渠道Flavors，配置不同风格的app,友盟渠道统计时用到
+            productFlavors {
+                "offical" {}
+                "360" {}
+                yingyongbao {}
+                wandoujia {}
+                baidu {}
+                "91" {}
+            }
 //            android.applicationVariants.all { variant ->
 //                variant.outputs.all {
 //                    outputFileName = "ygh_${variant.productFlavors[0].name}_v${variant.versionName}_${releaseTime()}.apk"
