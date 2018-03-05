@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.Utils;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.tinker.loader.app.TinkerApplication;
 import com.tencent.tinker.loader.shareutil.ShareConstants;
+import com.umeng.commonsdk.UMConfigure;
 import com.ygh.appframe.service.CoreService;
 
 /**
@@ -33,6 +34,8 @@ public class MyApplication extends TinkerApplication {
         if (!LeakCanary.isInAnalyzerProcess(this)) {
             LeakCanary.install(this);
         }
+        //友盟统计初始化
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "1fe6a20054bcef865eeb0991ee84525b");
         //启动核心服务
         startService(new Intent(this, CoreService.class));
     }

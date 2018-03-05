@@ -69,7 +69,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths"/>
         </provider>
-        <!--bugly-->
+
+        <!--友盟统计-->
+        <meta-data android:value="YOUR_APP_KEY" android:name="5a9ce4068f4a9d02b60000fd"/>
+        <meta-data android:value="Channel ID" android:name="${UMENG_CHANNEL_VALUE}"/>
 
         <service
             android:name=".service.CoreService"
