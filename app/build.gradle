@@ -52,7 +52,7 @@ android {
         debug {
         }
         release {// 自己的签名文件
-            storeFile file("./doc/ygh.jks")
+            storeFile file("./doc/keystore/ygh.jks")
             storePassword "12345678"
             keyAlias "ygh"
             keyPassword "12345678"
