@@ -32,7 +32,7 @@ public class MyApplication extends TinkerApplication {
         Utils.init(context);
         //https://bugly.qq.com/docs/user-guide/instruction-manual-android-upgrade/?v=20180209200613
         //初始化异常收集框架
-        Bugly.init(getApplicationContext(), "注册时申请的APPID", false);
+        Bugly.init(getApplicationContext(), "71fcfa7dc5", false);
         //初始化内存泄漏检测插件
         if (!LeakCanary.isInAnalyzerProcess(this)) {
             LeakCanary.install(this);
