@@ -154,6 +154,9 @@ dependencies {
     //友盟统计
     compile 'com.umeng.sdk:common:latest.integration'
     compile 'com.umeng.sdk:analytics:latest.integration'
+    //material-dialog
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
 }
 // 依赖插件脚本
 apply from: 'tinker-support.gradle'
