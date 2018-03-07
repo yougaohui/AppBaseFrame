@@ -55,10 +55,10 @@ android {
         debug {
         }
         release {// 自己的签名文件
-            storeFile file("./doc/keystore/ygh.jks")
-            storePassword "12345678"
-            keyAlias "ygh"
-            keyPassword "12345678"
+            storeFile file(KEYSTORE_FILE)
+            storePassword KEYSTORE_PWD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PWD
         }
     }
 
