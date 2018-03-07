@@ -1,11 +1,13 @@
 package com.ygh.appframe.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ygh.appframe.R;
 
 import org.greenrobot.eventbus.EventBus;
@@ -25,20 +27,33 @@ import rx.subscriptions.CompositeSubscription;
 public abstract class BaseActivity<P extends BasePresenterImpl> extends AppCompatActivity implements SlidingPaneLayout.PanelSlideListener {
     private CompositeSubscription mCompositeSubscription;
     protected P Presente;
-
-
+    protected Context mContext;
     public final static String TAG = BaseActivity.class.getCanonicalName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         initSwipeBackFinish();
         Presente = createPresenter();
+        mContext = this;
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
         registerEventBus();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(TAG);
+        MobclickAgent.onResume(mContext);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(TAG);
+        MobclickAgent.onPause(mContext);
+    }
 
     /**
      * 初始化滑动返回

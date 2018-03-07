@@ -292,4 +292,5 @@ public static java.lang.String TABLENAME;
 #bugly
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
-# -keep class android.support.**{*;}
+#友盟统计
+-keep class com.umeng.commonsdk.* {*;}
