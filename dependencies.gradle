@@ -1,0 +1,34 @@
+ext.versions = [
+        minSdk            : 14,
+        compileSdk        : 27,
+        buildTools        : '27.0.2',
+        publishVersion    : '1.0',
+        publishVersionCode: 1,
+        gradlePlugin      : '3.0.1',
+
+        supportLib        : '27.0.2',
+        butterKnife       : '8.8.1',
+        retrofit          : '2.0.2',
+        okhttp            : '3.1.2',
+        rxjava            : '1.1.0',
+
+        glide             : '3.6.0',
+        photoview         : '1.4.0',
+        greendao          : '3.2.2',
+        greendaohelper    : 'v1.4.0',
+        recyclerview      : '2.9.30',
+        leakcanary        : '1.5.4',
+
+        utilcode          : '1.12.6',
+        eventbus          : '3.1.1',
+        butterknife       : '8.8.1',
+        walle             : '1.1.3',
+        multidex          : '1.0.1',
+        materialdialogs   : '0.9.6.0',
+
+        butterknifePlugin : '9.0.0-SNAPSHOT',
+        greendaoPlugin    : '3.2.2',
+        tinkerPlugin      : '1.1.1',
+        wallePlugin       : '1.1.3',
+
+]
