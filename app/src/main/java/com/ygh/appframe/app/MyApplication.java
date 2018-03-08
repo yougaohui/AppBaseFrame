@@ -18,6 +18,15 @@ public class MyApplication extends TinkerApplication {
 
     public static Context context;
 
+    private static MyApplication instance;
+
+    public static synchronized MyApplication getInstance() {
+        if (null == instance) {
+            instance = new MyApplication();
+        }
+        return instance;
+    }
+
     public MyApplication() {
         //热更新相关
         super(ShareConstants.TINKER_ENABLE_ALL, "com.ygh.appframe.app.SampleApplicationLike",
@@ -27,7 +36,8 @@ public class MyApplication extends TinkerApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        context = this;
+        instance = this;
+        context = instance;
         //初始化工具类
         Utils.init(context);
         //初始化内存泄漏检测插件
