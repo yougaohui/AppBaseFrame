@@ -3,7 +3,6 @@ package com.ygh.appframe.base;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.widget.SlidingPaneLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -17,6 +16,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.lang.reflect.Field;
 
 import butterknife.ButterKnife;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
@@ -24,7 +24,7 @@ import rx.subscriptions.CompositeSubscription;
  * Created by gaohui.you on 2/28/18
  * Email:839939978@qq.com
  */
-public abstract class BaseActivity<P extends BasePresenterImpl> extends AppCompatActivity implements SlidingPaneLayout.PanelSlideListener {
+public abstract class BaseActivity<P extends BasePresenterImpl> extends SwipeBackActivity implements SlidingPaneLayout.PanelSlideListener {
     private CompositeSubscription mCompositeSubscription;
     protected P Presente;
     protected Context mContext;
@@ -168,11 +168,12 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends AppCompa
     }
 
     /**
-    * 数据接收
-    * @author gaohui.you  839939978@qq.com
-    * Create at 3/1/18 11:01 AM
-    * @params
-    **/
+     * 数据接收
+     *
+     * @author gaohui.you  839939978@qq.com
+     * Create at 3/1/18 11:01 AM
+     * @params
+     **/
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(Object event) {
 

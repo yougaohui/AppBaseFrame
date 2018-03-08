@@ -124,24 +124,24 @@ dependencies {
     compile 'io.reactivex:rxandroid:' + versions.rxjava
     compile 'io.reactivex:rxjava:' + versions.rxjava
     //图片加载框架
-    compile 'com.github.bumptech.glide:glide:'+ versions.glide
-    compile 'com.bm.photoview:library:'+ versions.photoview
+    compile 'com.github.bumptech.glide:glide:' + versions.glide
+    compile 'com.bm.photoview:library:' + versions.photoview
     //数据库框架
-    compile 'org.greenrobot:greendao:'+ versions.greendao
+    compile 'org.greenrobot:greendao:' + versions.greendao
     //greendao数据库升级框架
-    compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:'+ versions.greendaohelper
+    compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:' + versions.greendaohelper
     //BaseRecyclerViewAdapterHelper
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:'+ versions.recyclerview
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:' + versions.recyclerview
     //检测内存泄漏框架
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:'+ versions.leakcanary
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:'+ versions.leakcanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:' + versions.leakcanary
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:' + versions.leakcanary
     //工具类框架
-    compile 'com.blankj:utilcode:'+ versions.utilcode
+    compile 'com.blankj:utilcode:' + versions.utilcode
     //本地通信框架
-    compile 'org.greenrobot:eventbus:'+ versions.eventbus
+    compile 'org.greenrobot:eventbus:' + versions.eventbus
     //依赖注入框架
-    compile 'com.jakewharton:butterknife:'+ versions.butterknife
-    annotationProcessor 'com.jakewharton:butterknife-compiler:'+ versions.butterknife
+    compile 'com.jakewharton:butterknife:' + versions.butterknife
+    annotationProcessor 'com.jakewharton:butterknife-compiler:' + versions.butterknife
     //bugly异常搜集框架
     //注释掉原有bugly的仓库
     //compile 'com.tencent.bugly:crashreport:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.3.2
@@ -149,15 +149,17 @@ dependencies {
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     // walle（多渠道使用）
-    compile 'com.meituan.android.walle:library:'+ versions.walle
+    compile 'com.meituan.android.walle:library:' + versions.walle
     // 多dex配置
-    compile "com.android.support:multidex:"+ versions.multidex
+    compile "com.android.support:multidex:" + versions.multidex
     //友盟统计
     compile 'com.umeng.sdk:common:latest.integration'
     compile 'com.umeng.sdk:analytics:latest.integration'
     //material-dialog
-    implementation 'com.afollestad.material-dialogs:core:'+ versions.materialdialogs
-    implementation 'com.afollestad.material-dialogs:commons:'+ versions.materialdialogs
+    implementation 'com.afollestad.material-dialogs:core:' + versions.materialdialogs
+    implementation 'com.afollestad.material-dialogs:commons:' + versions.materialdialogs
+    //侧滑UI退出依赖
+    compile 'me.imid.swipebacklayout.lib:library:' + versions.swipebacklayout
 }
 // 依赖插件脚本
 apply from: 'tinker-support.gradle'

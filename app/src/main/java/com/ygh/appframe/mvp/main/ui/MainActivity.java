@@ -16,6 +16,7 @@ import com.ygh.appframe.mvp.main.view.MainView;
 import com.ygh.appframe.mvp.news.ui.NewsFragment;
 import com.ygh.appframe.mvp.photo.ui.PhotoFragment;
 import com.ygh.appframe.utils.ShareUtils;
+
 import butterknife.BindView;
 
 public class MainActivity extends BaseActivity<MainParsenterImpl> implements MainView {
@@ -33,8 +34,6 @@ public class MainActivity extends BaseActivity<MainParsenterImpl> implements Mai
         super.onCreate(savedInstanceState);
         SwitchItem(R.id.nav_news);
         init();
-
-
     }
 
     private void init() {
@@ -45,8 +44,8 @@ public class MainActivity extends BaseActivity<MainParsenterImpl> implements Mai
         drawe.addDrawerListener(mDrawerToggle);
         navigationView.setCheckedItem(R.id.nav_news);
         setupDrawerContent(navigationView);
-
-
+        //设置不可侧滑退出
+        setSwipeBackEnable(false);
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
