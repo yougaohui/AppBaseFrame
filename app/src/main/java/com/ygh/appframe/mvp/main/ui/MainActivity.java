@@ -121,9 +121,4 @@ public class MainActivity extends BaseActivity<MainParsenterImpl> implements Mai
                 break;
         }
     }
-
-    @Override
-    protected boolean isSupportSwipeBack() {
-        return false;
-    }
 }
