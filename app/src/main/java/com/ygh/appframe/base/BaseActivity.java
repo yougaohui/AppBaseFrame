@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.umeng.analytics.MobclickAgent;
 import com.ygh.appframe.R;
+import com.ygh.appframe.utils.EventBusUtils;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -38,7 +38,7 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends SwipeBac
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-        registerEventBus();
+        EventBusUtils.register(this);
     }
 
     @Override
@@ -118,7 +118,7 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends SwipeBac
         if (Presente != null) {
             Presente.detachView();
         }
-        unregisterEventBus();
+        EventBusUtils.unregister(this);
     }
 
 
@@ -141,31 +141,6 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends SwipeBac
 
     protected abstract int getLayoutId();
 
-    /**
-     * 注册EventBus
-     *
-     * @author gaohui.you  839939978@qq.com
-     * Create at 3/1/18 10:54 AM
-     * @params
-     **/
-    protected void registerEventBus() {
-        if (!EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().register(this);
-        }
-    }
-
-    /**
-     * 解注册EventBus
-     *
-     * @author gaohui.you  839939978@qq.com
-     * Create at 3/1/18 10:54 AM
-     * @params
-     **/
-    protected void unregisterEventBus() {
-        if (EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().unregister(this);
-        }
-    }
 
     /**
      * 数据接收
