@@ -25,10 +25,13 @@ ext.versions = [
         walle             : '1.1.3',
         multidex          : '1.0.1',
         materialdialogs   : '0.9.6.0',
+        swipebacklayout   : '1.1.0',
 
         butterknifePlugin : '9.0.0-SNAPSHOT',
         greendaoPlugin    : '3.2.2',
         tinkerPlugin      : '1.1.1',
         wallePlugin       : '1.1.3',
+
+
 
 ]
