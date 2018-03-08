@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.umeng.analytics.MobclickAgent;
 import com.ygh.appframe.R;
+import com.ygh.appframe.app.AppManager;
 import com.ygh.appframe.utils.EventBusUtils;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -39,6 +40,7 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends SwipeBac
         setContentView(getLayoutId());
         ButterKnife.bind(this);
         EventBusUtils.register(this);
+        AppManager.getAppManager().addActivity(this);
     }
 
     @Override
@@ -119,6 +121,7 @@ public abstract class BaseActivity<P extends BasePresenterImpl> extends SwipeBac
             Presente.detachView();
         }
         EventBusUtils.unregister(this);
+        AppManager.getAppManager().finishActivity(this);
     }
 
 

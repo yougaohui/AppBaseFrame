@@ -11,11 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.ygh.appframe.R;
 import com.ygh.appframe.base.BaseFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 作者：hequnsky on 2016/8/1 15:41
@@ -39,8 +39,8 @@ public class PhotoFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_photo, null);
-        mViewPager = (ViewPager) view.findViewById(R.id.photo_viewpager);
-        mTablayout = (TabLayout) view.findViewById(R.id.phototab_layout);
+        mViewPager = view.findViewById(R.id.photo_viewpager);
+        mTablayout = view.findViewById(R.id.phototab_layout);
         mViewPager.setOffscreenPageLimit(3);
         setupViewPager(mViewPager);
         mTablayout.addTab(mTablayout.newTab().setText(R.string.sexy));
